@@ -49,4 +49,13 @@ export const PROJECTS = [
       "Typescript",
     ],
   },
+  {
+    name: "Landing Page (Internship Project)",
+    description:
+      "enuhMakna is a modern, lightweight web application designed to offer a clean and smooth user experience for showcasing content, stories, or other meaningful information. It is built with a focus on simplicity and aesthetics, leveraging Tailwind CSS for custom styling and typography. ",
+    gitHubUrl: "https://github.com/danielzuhad/penuh-makna",
+    liveUrl: "https://penuh-makna.vercel.app/",
+    image: "/images/landing-page.png",
+    techStacks: ["Next.js", "TailwindCSS", "Daisy UI"],
+  },
 ];
