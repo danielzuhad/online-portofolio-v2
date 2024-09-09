@@ -6,7 +6,7 @@ const iconSize = 18;
 export const SOCIAL_LINKS = [
   {
     label: "CV",
-    href: "/files/CV ATS.pdf",
+    href: "/files/CV Daniel.pdf",
     icon: <FileText size={iconSize} />,
   },
   {
