@@ -20,7 +20,7 @@ export const PROJECTS = [
     description:
       "The Spotify Clone is a music streaming web application built using modern technologies. It mimics key features of Spotify, allowing users to browse, play, and manage music playlists. The app integrates with Spotify’s API to fetch real-time data, giving users access to their favorite tracks and playlists. ",
     gitHubUrl: "https://github.com/danielzuhad/spotify-clone",
-    liveUrl: "https://spotify-clone-k7.vercel.app/",
+    liveUrl: "https://spotify-clone-one-psi-53.vercel.app",
     image: "/images/spotify-clone-app.png",
     techStacks: [
       "Next.js",
