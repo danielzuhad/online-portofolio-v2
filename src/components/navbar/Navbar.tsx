@@ -18,8 +18,6 @@ type LinkId = (typeof LINKS)[number]["id"];
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState<LinkId | "">("");
 
-  console.log({ activeSection });
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
@@ -29,7 +27,7 @@ const Navbar = () => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         if (
-          window.scrollY >= sectionTop - 50 &&
+          window.scrollY >= sectionTop - 100 &&
           window.scrollY < sectionTop + sectionHeight - 50
         ) {
           const sectionId = section.getAttribute("id") as LinkId;
@@ -50,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-16 border-b-2 shadow-sm border-primary/5 bg-primary-foreground/50 backdrop-blur-md flex justify-center fixed px-2">
+      <nav className="w-full h-16 border-b-2 shadow-sm border-primary/10 bg-primary-foreground/50 backdrop-blur-md flex justify-center fixed px-2">
         <div className="container flex justify-between items-center">
           <ThemeToggle />
 

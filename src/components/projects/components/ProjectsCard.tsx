@@ -64,7 +64,7 @@ const ProjectsCard = ({
           <Anchor
             href={githubUrl}
             size={"sm"}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center gap-3 hover:cursor-pointer"
           >
             Github
             <GitHubLogoIcon />

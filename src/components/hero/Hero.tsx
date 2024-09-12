@@ -6,12 +6,12 @@ import { cn } from "@/lib/utils";
 const Hero = () => {
   return (
     <>
-      <Layout id="home" className="px-2  min-h-[90vh]">
+      <Layout id="home" className="px-2  min-h-[60vh] items-end">
         <main className=" mt-28 sm:mt-0 flex flex-col justify-end items-center w-full">
           <h1 className="text-4xl md:text-5xl xl:text-6xl text-center font-bold">
             Muhammad Daniel Zuhad
           </h1>
-          <p className="text-xl mt-3 font-thin text-muted-foreground/50 text-center">
+          <p className="text-xl mt-2 font-thin text-muted-foreground/50 text-center">
             Web Developer
           </p>
 

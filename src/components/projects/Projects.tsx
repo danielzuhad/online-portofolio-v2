@@ -12,9 +12,9 @@ import { PROJECTS } from "./constants";
 const Projects = () => {
   return (
     <>
-      <Layout id="projects" className="px-2 flex-col justify-start pt-28">
-        <h1 className="text-3xl font-bold">Projects</h1>
-        <p className="text-muted-foreground/50 text-center text-xs mt-3">
+      <Layout id="projects" className="px-2 flex-col justify-center pt-28">
+        <h1 className="text-3xl xl:text-4xl font-bold">Projects</h1>
+        <p className="text-muted-foreground/50 text-center text-sm md:text-base mt-2">
           This is projects that i have done
         </p>
         <Carousel className="flex-col gap-y-5 flex w-[90vw]  mt-10 h-[55vh] sm:h-[60vh] items-center ">
