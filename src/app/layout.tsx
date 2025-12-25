@@ -1,9 +1,9 @@
+import Layout from "@/components/layout/Layout";
+import Navbar from "@/components/navbar/Navbar";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import Navbar from "@/components/navbar/Navbar";
-import Layout from "@/components/layout/Layout";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           // disableTransitionOnChange
         >

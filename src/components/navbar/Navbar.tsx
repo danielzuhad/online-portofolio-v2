@@ -1,7 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { AlignJustify } from "lucide-react";
-import ThemeToggle from "./components/ThemeButton";
+import { useEffect, useState } from "react";
 import {
   Menubar,
   MenubarContent,
@@ -9,9 +10,8 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../ui/menubar";
+import ThemeToggle from "./components/ThemeButton";
 import { LINKS } from "./constants";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 type LinkId = (typeof LINKS)[number]["id"];
 
@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-16 border-b-2 shadow-sm border-primary/10 bg-primary-foreground/50 backdrop-blur-md flex justify-center fixed px-2">
+      <nav className="w-full h-16 border-b shadow-sm border-primary/10 bg-background/70 supports-[backdrop-filter]:bg-background/50 backdrop-blur-md flex justify-center fixed px-2 z-50">
         <div className="container flex justify-between items-center">
           <ThemeToggle />
 
@@ -86,10 +86,10 @@ const Navbar = () => {
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className={cn(
-                    " hover:cursor-pointer text-base transition-all",
+                    "relative hover:cursor-pointer text-base transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-foreground/70 after:transition-transform after:duration-300 hover:after:scale-x-100",
                     activeSection === link.id
-                      ? "text-foreground font-semibold"
-                      : "text-muted-foreground"
+                      ? "text-foreground font-semibold after:scale-x-100"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                   key={i}
                 >

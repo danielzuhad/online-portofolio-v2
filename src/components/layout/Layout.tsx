@@ -9,17 +9,15 @@ interface LayoutProps {
 
 const Layout = ({ children, className, id }: LayoutProps) => {
   return (
-    <>
-      <section
-        id={id}
-        className={cn(
-          "min-h-screen max-w-screen w-full container flex justify-center items-center",
-          className
-        )}
-      >
-        {children}
-      </section>
-    </>
+    <section
+      id={id}
+      className={cn(
+        "max-w-screen w-full container px-2 py-24 sm:py-28 flex flex-col justify-center items-center scroll-mt-24",
+        className
+      )}
+    >
+      {children}
+    </section>
   );
 };
 

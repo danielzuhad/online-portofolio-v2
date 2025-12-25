@@ -3,10 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 
 interface ProjectsCardProps {
   className?: string;
   liveUrl?: string;
+  gitHubUrl?: string;
   githubUrl?: string;
   name?: string;
   description?: string;
@@ -17,43 +19,63 @@ interface ProjectsCardProps {
 const ProjectsCard = ({
   className,
   liveUrl,
+  gitHubUrl,
   githubUrl,
   name,
   description,
   techStacks,
   image,
 }: ProjectsCardProps) => {
+  const resolvedGithubUrl = gitHubUrl ?? githubUrl;
+  const resolvedName = name ?? "Project";
+  const isExternalLive = typeof liveUrl === "string" && liveUrl.startsWith("http");
+  const isExternalGithub =
+    typeof resolvedGithubUrl === "string" && resolvedGithubUrl.startsWith("http");
+
   return (
-    <>
-      <Card
-        className={cn(
-          "w-full max-sm:max-w-[300px] sm:max-w-[900px] flex flex-col sm:flex-row  bg-muted h-full p-2 sm:p-4",
-          className
-        )}
-      >
+    <Card
+      className={cn(
+        "group w-full max-w-5xl overflow-hidden bg-card/60 backdrop-blur border-muted/40 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md",
+        className
+      )}
+    >
+      <div className="grid sm:grid-cols-2">
         <a
           href={liveUrl}
-          className="w-full bg-red-800 h-[40%] sm:h-full rounded-md hover:cursor-pointer"
+          target={isExternalLive ? "_blank" : undefined}
+          rel={isExternalLive ? "noreferrer" : undefined}
+          className="relative block aspect-[16/10] sm:aspect-auto sm:h-full overflow-hidden bg-muted"
+          aria-label={`Open ${resolvedName} live preview`}
         >
-          <img
-            src={image}
-            className="w-full h-full bg-slate-500 rounded-md object-cover border-[1px] border-muted-foreground/5"
-            alt=""
-          />
+          {image ? (
+            <Image
+              src={image}
+              alt={`${resolvedName} preview`}
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+              priority={false}
+            />
+          ) : null}
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/60" />
         </a>
-        <div className="w-full h-[60%] sm:h-full pt-3  sm:pl-3 flex flex-col justify-between">
-          <div>
-            <h2 className="font-semibold text-lg sm:text-4xl">{name}</h2>
 
-            <p className="text-xs mt-0.5 sm:mt-6 sm:text-sm md:line-clamp-none font-normal text-foreground/50 line-clamp-2">
+        <div className="p-4 sm:p-6 flex flex-col justify-between gap-5">
+          <div>
+            <h3 className="text-lg sm:text-3xl font-semibold tracking-tight">
+              {resolvedName}
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3 sm:line-clamp-4">
               {description}
             </p>
 
-            <div className="w-full mt-2 sm:mt-2 space-x-1 space-y-1">
+            <div className="mt-4 flex flex-wrap gap-2">
               {techStacks?.map((tech, i) => (
                 <Badge
                   key={i}
-                  className="rounded-xl max-sm:px-2 max-sm:py-[1px] max-sm:text-[10px] font-light"
+                  variant="secondary"
+                  className="rounded-full px-3 py-1 text-[11px] font-medium"
                 >
                   {tech}
                 </Badge>
@@ -61,17 +83,36 @@ const ProjectsCard = ({
             </div>
           </div>
 
-          <Anchor
-            href={githubUrl}
-            size={"sm"}
-            className="flex items-center justify-center gap-3 hover:cursor-pointer"
-          >
-            Github
-            <GitHubLogoIcon />
-          </Anchor>
+          <div className="flex flex-wrap gap-2">
+            {liveUrl ? (
+              <Anchor
+                href={liveUrl}
+                variant="default"
+                size="sm"
+                target={isExternalLive ? "_blank" : undefined}
+                rel={isExternalLive ? "noreferrer" : undefined}
+                className="gap-2"
+              >
+                Live Demo
+              </Anchor>
+            ) : null}
+
+            {resolvedGithubUrl ? (
+              <Anchor
+                href={resolvedGithubUrl}
+                variant="outline"
+                size="sm"
+                target={isExternalGithub ? "_blank" : undefined}
+                rel={isExternalGithub ? "noreferrer" : undefined}
+                className="gap-2"
+              >
+                GitHub <GitHubLogoIcon />
+              </Anchor>
+            ) : null}
+          </div>
         </div>
-      </Card>
-    </>
+      </div>
+    </Card>
   );
 };
 

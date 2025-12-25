@@ -8,31 +8,41 @@ import {
 } from "../ui/carousel";
 import ProjectsCard from "./components/ProjectsCard";
 import { PROJECTS } from "./constants";
+import Reveal from "@/components/motion/Reveal";
 
 const Projects = () => {
   return (
-    <>
-      <Layout id="projects" className="px-2 flex-col justify-center pt-28">
-        <h1 className="text-3xl xl:text-4xl font-bold">Projects</h1>
-        <p className="text-muted-foreground/50 text-center text-sm md:text-base mt-2">
-          This is projects that i have done
-        </p>
-        <Carousel className="flex-col gap-y-5 flex w-[90vw]  mt-10 h-[55vh] sm:h-[60vh] items-center ">
-          <CarouselContent>
-            {PROJECTS.map((project, i) => (
-              <CarouselItem key={i} className="basis-full">
-                <ProjectsCard {...project} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <div className="w-full flex justify-center items-center gap-x-5">
-            <CarouselPrevious />
-            <CarouselNext />
+    <Layout id="projects">
+      <div className="w-full flex flex-col items-center">
+        <Reveal>
+          <div className="text-center">
+            <h2 className="text-3xl xl:text-4xl font-bold tracking-tight">
+              Projects
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-muted-foreground">
+              Selected work I’ve built and shipped.
+            </p>
           </div>
-        </Carousel>
-      </Layout>
-    </>
+        </Reveal>
+
+        <Reveal delayMs={120} className="w-full mt-10 flex justify-center">
+          <Carousel className="w-full max-w-5xl flex flex-col gap-y-6 items-center">
+            <CarouselContent>
+              {PROJECTS.map((project, i) => (
+                <CarouselItem key={i} className="basis-full">
+                  <ProjectsCard {...project} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <div className="w-full flex justify-center items-center gap-x-4">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
+          </Carousel>
+        </Reveal>
+      </div>
+    </Layout>
   );
 };
 

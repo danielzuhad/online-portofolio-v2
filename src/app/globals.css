@@ -66,6 +66,11 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    --bg-grid-size: 28px;
+    --bg-grid-alpha: 0.06;
+    --bg-spot-primary-alpha: 0.12;
+    --bg-spot-secondary-alpha: 0.08;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -92,6 +97,10 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --bg-grid-alpha: 0.035;
+    --bg-spot-primary-alpha: 0.2;
+    --bg-spot-secondary-alpha: 0.12;
   }
 }
 
@@ -101,5 +110,25 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+
+    background-image:
+      radial-gradient(
+        900px circle at 15% 10%,
+        hsl(var(--primary) / var(--bg-spot-primary-alpha)),
+        transparent 55%
+      ),
+      radial-gradient(
+        700px circle at 85% 20%,
+        hsl(var(--ring) / var(--bg-spot-secondary-alpha)),
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 1px 1px,
+        hsl(var(--foreground) / var(--bg-grid-alpha)) 1px,
+        transparent 0
+      );
+    background-size: auto, auto, var(--bg-grid-size) var(--bg-grid-size);
+    background-position: center, center, 0 0;
+    background-repeat: no-repeat, no-repeat, repeat;
   }
 }

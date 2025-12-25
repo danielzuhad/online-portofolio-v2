@@ -1,30 +1,32 @@
 import Layout from "../layout/Layout";
 import TechBadge from "./components/TechBadge";
 import { STACKS } from "./constants";
+import Reveal from "@/components/motion/Reveal";
 
 const TechStacks = () => {
   return (
-    <>
-      <Layout
-        id="tech-stacks"
-        className="px-2 items-center max-sm:min-h-[65vh] sm:min-h-[60vh] pt-32"
-      >
-        <main className="w-full h-full">
-          <h1 className="text-3xl font-bold xl:text-4xl text-center">
-            Tech Stacks
-          </h1>
-          <p className="text-muted-foreground/50 text-center w-full flex justify-center mt-2 text-cemter text-sm md:text-base">
-            This is tech stacks that i usually use
-          </p>
+    <Layout id="tech-stacks">
+      <div className="w-full">
+        <Reveal>
+          <div className="text-center">
+            <h2 className="text-3xl xl:text-4xl font-bold tracking-tight">
+              Tech Stack
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-muted-foreground">
+              Tools and technologies I use regularly.
+            </p>
+          </div>
+        </Reveal>
 
-          <div className="w-full mt-14 flex flex-wrap justify-center gap-9 lg:gap-x-16">
+        <Reveal delayMs={120}>
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-10 sm:gap-12">
             {STACKS.map((stack, i) => (
               <TechBadge key={i} icon={stack.icon} label={stack.label} />
             ))}
           </div>
-        </main>
-      </Layout>
-    </>
+        </Reveal>
+      </div>
+    </Layout>
   );
 };
 
