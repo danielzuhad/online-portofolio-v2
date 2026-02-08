@@ -12,7 +12,7 @@ export const PROJECTS = [
       "Redux Toolkit",
       "Prisma",
       "Vercel Postgres",
-      "Typescript",
+      "TypeScript",
     ],
   },
   {
@@ -27,9 +27,9 @@ export const PROJECTS = [
       "TailwindCSS",
       "Redux Toolkit",
       "React Query",
-      "Frammer Motion",
+      "Framer Motion",
       "NextAuth",
-      "Typescript",
+      "TypeScript",
     ],
   },
   {
@@ -46,7 +46,7 @@ export const PROJECTS = [
       "React Query",
       "NextAuth",
       "Prisma",
-      "Typescript",
+      "TypeScript",
     ],
   },
   {

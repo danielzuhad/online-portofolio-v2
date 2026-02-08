@@ -7,7 +7,7 @@ const iconSize = 42;
 
 export const STACKS = [
   {
-    label: "Javascript",
+    label: "JavaScript",
     icon: <FaJs size={iconSize} />,
   },
   {

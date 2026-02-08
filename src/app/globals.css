@@ -111,7 +111,7 @@ body {
   body {
     @apply bg-background text-foreground;
 
-    background-image:
+    /* background-image:
       radial-gradient(
         900px circle at 15% 10%,
         hsl(var(--primary) / var(--bg-spot-primary-alpha)),
@@ -129,6 +129,6 @@ body {
       );
     background-size: auto, auto, var(--bg-grid-size) var(--bg-grid-size);
     background-position: center, center, 0 0;
-    background-repeat: no-repeat, no-repeat, repeat;
+    background-repeat: no-repeat, no-repeat, repeat; */
   }
 }

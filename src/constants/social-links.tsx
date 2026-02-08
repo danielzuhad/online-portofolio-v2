@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = [
     icon: <FileText size={iconSize} />,
   },
   {
-    label: "Linkedln",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/muhammad-daniel-zuhad-45935b25b/",
     icon: <Linkedin size={iconSize} />,
   },
@@ -20,7 +20,7 @@ export const SOCIAL_LINKS = [
     icon: <InstagramLogoIcon fontSize={iconSize} />,
   },
   {
-    label: "Github",
+    label: "GitHub",
     href: "https://github.com/danielzuhad",
     icon: <GitHubLogoIcon fontSize={iconSize} />,
   },

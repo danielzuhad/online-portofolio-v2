@@ -1,5 +1,3 @@
-import Layout from "@/components/layout/Layout";
-import Navbar from "@/components/navbar/Navbar";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
@@ -33,10 +31,7 @@ export default function RootLayout({
           enableSystem
           // disableTransitionOnChange
         >
-          <Navbar />
-          <Layout>
-            <div className="container">{children}</div>
-          </Layout>
+          <div className="container">{children}</div>
         </ThemeProvider>
       </body>
     </html>
