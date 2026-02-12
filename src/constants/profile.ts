@@ -12,7 +12,8 @@ export const PROFILE = {
 } as const;
 
 export const PROFILE_HIGHLIGHTS = [
-  { label: "Years Building", value: "2+" },
-  { label: "Projects Shipped", value: "8+" },
-  { label: "Primary Focus", value: "Frontend" },
+  { label: "Years Experience (Professional)", value: "1+" },
+  { label: "Personal Projects (Projects Section)", value: "4+" },
+  { label: "Primary Focus", value: "Frontend Developer" },
+  { label: "Currently Learning", value: "Fullstack (Go Backend)" },
 ] as const;

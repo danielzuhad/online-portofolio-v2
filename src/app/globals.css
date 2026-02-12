@@ -2,12 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --background: 45 29% 97%;
+  --foreground: 216 31% 14%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 216 31% 14%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 216 31% 14%;
+
+  --primary: 188 78% 35%;
+  --primary-foreground: 45 29% 97%;
+
+  --secondary: 191 34% 92%;
+  --secondary-foreground: 210 31% 16%;
+
+  --muted: 200 24% 92%;
+  --muted-foreground: 214 16% 39%;
+
+  --accent: 28 94% 56%;
+  --accent-foreground: 210 31% 14%;
+
+  --destructive: 0 83% 60%;
+  --destructive-foreground: 0 0% 99%;
+
+  --border: 214 25% 84%;
+  --input: 214 25% 84%;
+  --ring: 188 78% 35%;
+
+  --chart-1: 188 78% 35%;
+  --chart-2: 28 94% 56%;
+  --chart-3: 217 43% 49%;
+  --chart-4: 154 52% 46%;
+  --chart-5: 343 71% 54%;
+
+  --radius: 0.95rem;
+
+  --ambient-primary-alpha: 0.2;
+  --ambient-accent-alpha: 0.16;
+  --grid-alpha: 0.05;
 }
 
-body {
-  font-family: "Poppins", Helvetica, sans-serif;
+.dark {
+  --background: 221 39% 8%;
+  --foreground: 40 24% 95%;
+
+  --card: 222 27% 11%;
+  --card-foreground: 40 24% 95%;
+
+  --popover: 222 27% 11%;
+  --popover-foreground: 40 24% 95%;
+
+  --primary: 184 83% 58%;
+  --primary-foreground: 219 34% 9%;
+
+  --secondary: 223 19% 19%;
+  --secondary-foreground: 40 24% 95%;
+
+  --muted: 223 16% 17%;
+  --muted-foreground: 217 14% 68%;
+
+  --accent: 32 95% 63%;
+  --accent-foreground: 216 31% 12%;
+
+  --destructive: 0 63% 39%;
+  --destructive-foreground: 0 0% 97%;
+
+  --border: 220 16% 24%;
+  --input: 220 16% 24%;
+  --ring: 184 83% 58%;
+
+  --chart-1: 184 83% 58%;
+  --chart-2: 32 95% 63%;
+  --chart-3: 214 82% 64%;
+  --chart-4: 156 64% 52%;
+  --chart-5: 346 76% 65%;
+
+  --ambient-primary-alpha: 0.24;
+  --ambient-accent-alpha: 0.18;
+  --grid-alpha: 0.035;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground;
+    font-family: var(--font-manrope), "Segoe UI", sans-serif;
+    text-rendering: optimizeLegibility;
+
+    background-image:
+      radial-gradient(
+        840px circle at 6% -10%,
+        hsl(var(--primary) / var(--ambient-primary-alpha)),
+        transparent 56%
+      ),
+      radial-gradient(
+        700px circle at 94% 0%,
+        hsl(var(--accent) / var(--ambient-accent-alpha)),
+        transparent 55%
+      ),
+      linear-gradient(
+        hsl(var(--foreground) / var(--grid-alpha)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        hsl(var(--foreground) / var(--grid-alpha)) 1px,
+        transparent 1px
+      );
+    background-size: auto, auto, 42px 42px, 42px 42px;
+    background-position: center, center, -1px -1px, -1px -1px;
+    background-attachment: scroll;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-display {
+    font-family: var(--font-sora), "Segoe UI", sans-serif;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.24);
+    color: hsl(var(--foreground));
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply border border-border/70 bg-card/75 shadow-[0_16px_38px_-28px_hsl(var(--foreground)/0.4)] backdrop-blur-sm;
+  }
 }
 
 @layer utilities {
@@ -16,119 +155,31 @@ body {
   }
 }
 
-/* Scrollbar */
-/* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
+  height: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+  background: hsl(var(--background));
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border-radius: 10px;
+  border-radius: 999px;
+  background: hsl(var(--foreground) / 0.24);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #c7c7c7;
-}
-/* Scrollbar End */
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-
-    --bg-grid-size: 28px;
-    --bg-grid-alpha: 0.06;
-    --bg-spot-primary-alpha: 0.12;
-    --bg-spot-secondary-alpha: 0.08;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-
-    --bg-grid-alpha: 0.035;
-    --bg-spot-primary-alpha: 0.2;
-    --bg-spot-secondary-alpha: 0.12;
-  }
+  background: hsl(var(--foreground) / 0.34);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-
-    /* background-image:
-      radial-gradient(
-        900px circle at 15% 10%,
-        hsl(var(--primary) / var(--bg-spot-primary-alpha)),
-        transparent 55%
-      ),
-      radial-gradient(
-        700px circle at 85% 20%,
-        hsl(var(--ring) / var(--bg-spot-secondary-alpha)),
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 1px 1px,
-        hsl(var(--foreground) / var(--bg-grid-alpha)) 1px,
-        transparent 0
-      );
-    background-size: auto, auto, var(--bg-grid-size) var(--bg-grid-size);
-    background-position: center, center, 0 0;
-    background-repeat: no-repeat, no-repeat, repeat; */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { FileText, Linkedin, Mail } from "lucide-react";
 
 const iconSize = 18;
@@ -14,11 +14,11 @@ export const SOCIAL_LINKS = [
     href: "https://www.linkedin.com/in/muhammad-daniel-zuhad-45935b25b/",
     icon: <Linkedin size={iconSize} />,
   },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/daniel_zuhad/",
-    icon: <InstagramLogoIcon fontSize={iconSize} />,
-  },
+  // {
+  //   label: "Instagram",
+  //   href: "https://www.instagram.com/daniel_zuhad/",
+  //   icon: <InstagramLogoIcon fontSize={iconSize} />,
+  // },
   {
     label: "GitHub",
     href: "https://github.com/danielzuhad",

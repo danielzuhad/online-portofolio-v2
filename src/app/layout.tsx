@@ -1,18 +1,23 @@
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-manrope",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sora",
 });
 
 export const metadata: Metadata = {
-  title: "Daniel's Portfolio",
-  description: "Daniel's Portfolio",
+  title: "Muhammad Daniel Zuhad · Portfolio",
+  description: "Portfolio website of Muhammad Daniel Zuhad",
 };
 
 export default function RootLayout({
@@ -22,16 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${poppins.variable} antialiased min-h-screen max-w-screen w-full flex flex-col items-center bg-background`}
-      >
+      <body className={`${manrope.variable} ${sora.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
-          // disableTransitionOnChange
+          disableTransitionOnChange
         >
-          <div className="container">{children}</div>
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -15,15 +15,12 @@ const SectionHeading = ({
 }: SectionHeadingProps) => {
   return (
     <header className={cn("space-y-3", className)}>
-      <p className="text-xs font-semibold uppercase tracking-[0.26em] text-primary/90">
-        {eyebrow}
-      </p>
       <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
-        {title}
+        {eyebrow}
       </h2>
-      <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-        {description}
-      </p>
+      {title || description ? (
+        <p className="sr-only">{`${title}. ${description}`.trim()}</p>
+      ) : null}
     </header>
   );
 };

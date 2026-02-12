@@ -1,36 +1,32 @@
-export const PROJECTS = [
+export type Project = {
+  name: string;
+  description: string;
+  gitHubUrl: string | null;
+  liveUrl: string | null;
+  image: string | null;
+  techStacks: string[];
+  isUnderDev: boolean;
+};
+
+export const PROJECTS: ReadonlyArray<Project> = [
   {
-    name: "Todo List App",
+    name: "Stocking App",
     description:
-      "This Todo App is designed to help users manage their daily tasks efficiently. Users can add, edit, delete, and mark tasks as complete or incomplete. Built with modern technologies, it provides a smooth and intuitive user experience while keeping the interface minimalistic yet functional. ",
-    gitHubUrl: "https://github.com/danielzuhad/todo-list-next-ts",
-    liveUrl: "https://todo-list-next-ts.vercel.app/",
-    image: "/images/todo-list-app.png",
+      "Stocking App is a multi-tenant inventory and sales system with audit-first stock ledger, role-based access, and  reliable operations.",
+    gitHubUrl: null,
+    liveUrl: null,
+    image: null,
     techStacks: [
       "Next.js",
       "TailwindCSS",
-      "Redux Toolkit",
-      "Prisma",
-      "Vercel Postgres",
-      "TypeScript",
-    ],
-  },
-  {
-    name: "Spotify Clone App",
-    description:
-      "The Spotify Clone is a music streaming web application built using modern technologies. It mimics key features of Spotify, allowing users to browse, play, and manage music playlists. The app integrates with Spotify’s API to fetch real-time data, giving users access to their favorite tracks and playlists. ",
-    gitHubUrl: "https://github.com/danielzuhad/spotify-clone",
-    liveUrl: "https://harmony-play.vercel.app",
-    image: "/images/spotify-clone-app.png",
-    techStacks: [
-      "Next.js",
-      "TailwindCSS",
-      "Redux Toolkit",
+      "Shadcn",
       "React Query",
-      "Framer Motion",
       "NextAuth",
+      "Zod",
       "TypeScript",
+      "Drizzle",
     ],
+    isUnderDev: true,
   },
   {
     name: "Chat App",
@@ -48,14 +44,51 @@ export const PROJECTS = [
       "Prisma",
       "TypeScript",
     ],
+    isUnderDev: false,
   },
   {
-    name: "Landing Page (Internship Project)",
+    name: "Spotify Clone App",
     description:
-      "enuhMakna is a modern, lightweight web application designed to offer a clean and smooth user experience for showcasing content, stories, or other meaningful information. It is built with a focus on simplicity and aesthetics, leveraging Tailwind CSS for custom styling and typography. ",
-    gitHubUrl: "https://github.com/danielzuhad/penuh-makna",
-    liveUrl: "https://penuh-makna.vercel.app/",
-    image: "/images/landing-page.png",
-    techStacks: ["Next.js", "TailwindCSS", "Daisy UI"],
+      "The Spotify Clone is a music streaming web application built using modern technologies. It mimics key features of Spotify, allowing users to browse, play, and manage music playlists. The app integrates with Spotify’s API to fetch real-time data, giving users access to their favorite tracks and playlists. ",
+    gitHubUrl: "https://github.com/danielzuhad/spotify-clone",
+    liveUrl: "https://harmony-play.vercel.app",
+    image: "/images/spotify-clone-app.png",
+    techStacks: [
+      "Next.js",
+      "TailwindCSS",
+      "Redux Toolkit",
+      "React Query",
+      "Framer Motion",
+      "NextAuth",
+      "TypeScript",
+    ],
+    isUnderDev: false,
   },
+  {
+    name: "Todo List App",
+    description:
+      "This Todo App is designed to help users manage their daily tasks efficiently. Users can add, edit, delete, and mark tasks as complete or incomplete. Built with modern technologies, it provides a smooth and intuitive user experience while keeping the interface minimalistic yet functional. ",
+    gitHubUrl: "https://github.com/danielzuhad/todo-list-next-ts",
+    liveUrl: "https://todo-list-next-ts.vercel.app/",
+    image: "/images/todo-list-app.png",
+    techStacks: [
+      "Next.js",
+      "TailwindCSS",
+      "Redux Toolkit",
+      "Prisma",
+      "Vercel Postgres",
+      "TypeScript",
+    ],
+    isUnderDev: false,
+  },
+  // {
+  //   name: "Landing Page (Internship Project)",
+  //   description:
+  //     "enuhMakna is a modern, lightweight web application designed to offer a clean and smooth user experience for showcasing content, stories, or other meaningful information. It is built with a focus on simplicity and aesthetics, leveraging Tailwind CSS for custom styling and typography. ",
+  //   gitHubUrl: "https://github.com/danielzuhad/penuh-makna",
+  //   liveUrl: "https://penuh-makna.vercel.app/",
+  //   image: "/images/landing-page.png",
+  //   techStacks: ["Next.js", "TailwindCSS", "Daisy UI"],
+  //   isUnderDev: false,
+  // },
 ];
